@@ -1,0 +1,36 @@
+node('master') {
+    // some block
+    
+    def project_path= "01-Jenkins/petclinic-code"
+    
+    stage('GitCodeCheckout') {
+    
+    git branch: 'development', url: 'https://github.com/amitvashisttech/devops-cgi-11May2020.git'
+    }
+    
+    dir(project_path) {
+    stage('MavenClean') {
+    sh label: '', script: 'mvn clean'
+    }
+    
+    stage('Maven-Compile') {
+    sh label: '', script: 'mvn compile'
+    }
+    
+    stage('Maven-Test') {
+    sh label: '', script: 'mvn test'
+    }
+    
+    stage('Maven-Package') {
+    sh label: '', script: 'mvn package'
+    }
+    
+    stage('Code-Coverage') {
+    publishHTML([allowMissing: false, alwaysLinkToLastBuild: false, keepAll: false, reportDir: 'target/site/jacoco/', reportFiles: 'index.html', reportName: 'Code Covrage HTML Report', reportTitles: ''])
+    }
+    
+    stage('Publish-Test') {
+    junit allowEmptyResults: true, testResults: 'target/surefire-reports/TEST-*.xml'
+    }
+    }
+}
