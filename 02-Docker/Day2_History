@@ -1,0 +1,9 @@
+  281  docker version 
+  283  docker images 
+  284  docker ps -a 
+  285  docker run busybox echo "Welcome to Docker"
+  286  docker images 
+  287  docker ps 
+  288  docker ps -a
+  289  docker ps
+  290  docker run busybox echo "Hello World"
