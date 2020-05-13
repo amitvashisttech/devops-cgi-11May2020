@@ -5,5 +5,3 @@ version: '2'
 services:
   mywebapp:
     build: .
-    ports:
-      - '38081:80'
