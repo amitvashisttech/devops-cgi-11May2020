@@ -1,0 +1,94 @@
+  430  docker kill $(docker ps -aq)
+  431  docker rm $(docker ps -aq)
+  432  docker images 
+  433  exit
+  434  docker ps 
+  435  docker images
+  436  docker ps -a 
+  437  docker images
+  438  docker run -it centos-8-httpd:v1
+  439  docker run -itd centos-8-httpd:v1
+  440  docker ps 
+  441  docker run -itd centos-8-httpd:v2
+  442  docker ps 
+  443  curl 172.17.0.2
+  444  curl 172.17.0.3
+  445  curl 172.17.0.4
+  446  docker ps 
+  447  docker attach ae9a6b34df06
+  448  curl 172.17.0.4
+  449  curl 172.17.0.4/info.html
+  450  docker commit -p -m "New Info Page" ae9a6b34df06 centos-8-httpd:v3
+  451  docker images 
+  452  docker run -itd centos-8-httpd:v3
+  453  curl 172.17.0.5
+  454  curl 172.17.0.5/info.html
+  455  ls
+  456  docker images 
+  457  docker run -it ubuntu
+  458  ls
+  459  docker run -it ubuntu:16.04 
+  460  docker ps 
+  461  docker inspect 89c2db3aa5e9
+  462  curl 172.17.0.6
+  463  ls
+  464  cd devops-cgi-11May2020/
+  465  ls
+  466  git branch 
+  467  cd 02-Docker/
+  468  ls
+  469  mkdir Dockerfiles
+  470  ls
+  471  cd Dockerfiles/
+  472  ls
+  473  mkdir apache
+  474  ls
+  475  cd apache/
+  476  ls
+  477  vim Dockerfile
+  478  ls
+  479  cat Dockerfile 
+  480  docker build -t ubuntu-16-apache:v1 . 
+  481  docker images 
+  482  docker run -d --name ubuntu-apache-test-1 ubuntu-16-apache:v1
+  483  docker inspect $(docker ps -q) 
+  484  docker inspect $(docker ps -ql) 
+  485  curl 172.17.0.7
+  486  curl 172.17.0.6
+  487  curl 172.17.0.5
+  488  ls
+  489  docker ps 
+  490  docker images 
+  491  docker history fc4c88f53bdf
+  492  docker inspect fc4c88f53bdf
+  493  ls
+  494  docker run -d --name ubuntu-apache-test-2 ubuntu-16-apache:v1
+  495  curl 172.17.0.8
+  496  ls
+  497  cp -rf Dockerfile Dockerfile-Org
+  498  ls
+  499  vim Dockerfile
+  500  ls
+  501  curl 172.17.0.5/info.html
+  502  curl 172.17.0.5/info.html > amit.html
+  503  ls
+  504  cat amit.html 
+  505  vim amit.html 
+  506  ls
+  507  docker build -t ubuntu-16-apache:v2 -f Dockerfile . 
+  508  docker images 
+  509  docker run -d --name ubuntu-apache-test-3 ubuntu-16-apache:v2
+  510  docker inspect ubuntu-apache-test-3
+  511  curl 172.17.0.9
+  512  curl 172.17.0.9/info.html
+  513  docker run -d --name ubuntu-apache-test-4 ubuntu-16-apache:v2
+  514  curl 172.17.0.10/info.html
+  515  docker images 
+  516  ls
+  517  cd ..
+  518  ls
+  519  cd ..
+  520  ls
+  521  history 
+  522  ls
+  523  history > Day3_History
