@@ -36,9 +36,5 @@ node('master') {
     stage('Archive Artifact') {
     archive 'target/petclinic.war' 
     }
-    
-    stage('Deployment-Stage-Docker-Env') {
-    sh label: '', script: 'docker-compose up -d --build'
-    }
   }
 }
