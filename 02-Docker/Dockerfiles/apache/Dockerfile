@@ -13,5 +13,9 @@ RUN apt-get install apache2 -y
 # Custom Web Page
 COPY amit.html /var/www/html/info.html
 
+# Service Port
+EXPOSE 80 
+EXPOSE 8080 
+
 # Bring up the Service 
 CMD ["/usr/sbin/apache2ctl", "-D", "FOREGROUND"]
