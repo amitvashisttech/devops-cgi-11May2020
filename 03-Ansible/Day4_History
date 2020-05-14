@@ -1,15 +1,3 @@
-    1  ip addr 
-    2  cat /root/.jenkins/secrets/initialAdminPassword
-    3  java -version 
-    4  history 
-    5  date
-    6  ls
-    7  git clone https://github.com/amitvashisttech/devops-jenkins-acc-04May2020.git
-    8  ls
-    9  cd devops-jenkins-acc-04May2020/
-   10  ls
-   11  git branch -r 
-   12  git checkout -b demo-code origin/demo-code
    13  ls
    14  cd 02-Jenkins/
    15  ls
@@ -908,3 +896,105 @@
   908  cd 03-Ansible/
   909  ls
   910  history > Day2_History
+  911  cd ..
+  912  ls
+  913  git add . ; git commit -m "03-Ansible"; git push 
+  914  ls
+  915  cd 03-Ansible/
+  916  ls
+  917  cd 01-Inventory/
+  918  ls
+  919  cat 
+  920  cat inventory 
+  921  ls
+  922  vim inventory 
+  923  ansible all -i inventory -m ping -u vagrant -k 
+  924  ansible web -i inventory -m ping -u vagrant -k 
+  925  ansible db -i inventory -m ping -u vagrant -k 
+  926  ansible ansible -i inventory -m ping -u vagrant -k 
+  927  ls
+  928  ansible web:db -i inventory -m ping -u vagrant -k 
+  929  ansible 'web:&db' -i inventory -m ping -u vagrant -k 
+  930  ls
+  931  vim inventory 
+  932  ansible web -i inventory -m ping -u vagrant -k 
+  933  ansible db -i inventory -m ping -u vagrant -k 
+  934  ansible web:db -i inventory -m ping -u vagrant -k 
+  935  ansible 'web:&db' -i inventory -m ping -u vagrant -k 
+  936  vi inventory 
+  937  ansible 'web:&db' -i inventory -m ping -u vagrant -k 
+  938  ls
+  939  vim inventory 
+  940  ansible 'web:&db' -i inventory -m ping -u vagrant -k 
+  941  ansible 'web:&db:!ansible' -i inventory -m ping -u vagrant -k 
+  942  ls
+  943  vim inventory 
+  944  ansible dc -i inventory -m ping -u vagrant -k 
+  945  ls
+  946  vim inventory 
+  947  ansible dc -i inventory -m ping -u vagrant -k 
+  948  ansible dc -i inventory -m ping
+  949  ls
+  950  vim inventory 
+  951  ansible dc -i inventory -m ping
+  952  ls
+  953  cp -rf inventory inventory-old
+  954  ls
+  955  vim inventory
+  956  ansible dc -i inventory -m ping
+  957  vim inventory
+  958  ls
+  959  vim inventory
+  960  ansible dc -i inventory -m ping
+  961  ls
+  962  cd ..
+  963  ls
+  964  cp -rf 01-Inventory 02-Modules
+  965  ls
+  966  cd 02-Modules/
+  967  ls
+  968  cd ..
+  969  ls
+  970  cd 02-Modules/
+  971  ls
+  972  rm -rf inventory-old 
+  973  ls
+  974  ansible-doc -l 
+  975  ansible-doc ping 
+  976  date
+  977  ansible-doc command 
+  978  date
+  979  history 
+  980  ls
+  981  vim module-info.txt
+  982  ls
+  983  ansible dc -i inventory -m ping
+  984  ansible dc -i inventory -m command -a 'date'
+  985  df -hTP
+  986  ansible dc -i inventory -m command -a 'df -hTP'
+  987  uname  -a 
+  988  ansible dc -i inventory -m command -a 'uname -a '
+  989  cat /etc/*-release 
+  990  ls
+  991  ansible dc -i inventory -m command -a 'cat /etc/*-release'
+  992  ansible dc -i inventory -m shell -a 'cat /etc/os-re
+  993  ansible dc -i inventory -m command -a 'cat /etc/os-release'
+  994  ansible-doc setup 
+  995  ansible web -i inventory -m setup --tree ./facts
+  996  ls
+  997  cd facts/
+  998  ls
+  999  cat 172.42.42.101 
+ 1000  ansible-doc setup 
+ 1001  lsans
+ 1002  ls
+ 1003  cd 
+ 1004  exit
+ 1005  ls
+ 1006  cd devops-cgi-11May2020/03-Ansible/02-Modules/
+ 1007  ls
+ 1008  ansible web -i inventory -m setup -a 'filter=ansible_all_ipv4_addresses'
+ 1009  ls
+ 1010  cd ..
+ 1011  ls
+ 1012  history > Day2_History 
