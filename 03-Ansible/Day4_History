@@ -1,116 +1,3 @@
-  248  ls
-  249  cp -rf Jenkinfile Basic
-  250  ls
-  251  cp -rf JUnit-Code-Coverage Jenkinfile 
-  252  ls
-  253  vim Jenkinfile 
-  254  cd ..
-  255  l
-  256  ls
-  257  git add . ; git commit -m "Pipline-as-code"; git push 
-  258  git logs 
-  259  git log
-  260  ls
-  261  cd ..
-  262  ls
-  263  cd devops-cgi-11May2020/
-  264  ls
-  265  git log 
-  266  git branch 
-  267  git chechout development
-  268  git checkout development
-  269  ls
-  270  cat CHANGE_ME.txt H
-  271  cat CHANGE_ME.txt
-  272  echo "05" > CHANGE_ME.txt 
-  273  git add . ; git commit -m "05; git push 
-  274  git add . ; git commit -m "05"; git push 
-  275  git log 
-  276  ls
-  277  ps -ef | grep -i jenkins 
-  278  kill -9 2423
-  279  ls
-  280  ps -ef | grep -i jenkins 
-  281  docker version 
-  282  ls
-  283  docker images 
-  284  docker images ps -a 
-  285  docker run busybox echo "Welcome to Docker"
-  286  docker images 
-  287  docker ps 
-  288  docker ps -a
-  289  docker ps
-  290  docker run busybox echo "Hello World"
-  291  ls
-  292  docker ps 
-  293  docker ps -a 
-  294  ls
-  295  git branch 
-  296  git checkout master
-  297  ls
-  298  mkdir 02-Docker
-  299  ls
-  300  cd 02-Docker/
-  301  ls
-  302  history | grep -i docker
-  303  history | grep -i docker > Day2_History
-  304  ls
-  305  vim Day2_History 
-  306  ls
-  307  cd ..
-  308  ls
-  309  git add . ; git commit -m "02-Docker"; git push 
-  310  ls
-  311  cat 02-Docker/Day2_History 
-  312  ls
-  313  cd 
-  314  docker ps 
-  315  docker ps -a 
-  316  docker images 
-  317  docker pull ub
-  318  docker images 
-  319  docker run -it ubuntu
-  320  docker ps 
-  321  docker run -it centos 
-  322  docker ps 
-  323  docker run -it centos 
-  324  docker ps 
-  325  docker ps -a
-  326  docker run -it centos 
-  327  docker ps 
-  328  docker run -it --name mytest-cont-1 centos 
-  329  docker ps 
-  330  docker ps mytest-cont-1
-  331  docker inspect mytest-cont-1
-  332  docker ps 
-  333  docker stop 55b744092e7d
-  334  docker stop mytest-cont-1
-  335  docker ps 
-  336  docker ps -a 
-  337  docker start mytest-cont-1
-  338  docker ps 
-  339  docker inspect mytest-cont-1
-  340  docker run -it --name mytest-cont-2 centos 
-  341  docker run -it --name mytest-cont-3 centos 
-  342  docker ps 
-  343  docker inspect mytest-cont-1
-  344  docker inspect mytest-cont-2
-  345  docker inspect mytest-cont-3
-  346  docker stop  mytest-cont-2
-  347  docker inspect mytest-cont-2
-  348  docker run -it --name mytest-cont-4 centos 
-  349  docker inspect mytest-cont-4
-  350  docker start mytest-cont-2
-  351  docker inspect mytest-cont-4
-  352  docker inspect mytest-cont-2
-  353  ls
-  354  docker ps 
-  355  docker rm mytest-cont-2
-  356  docker kill mytest-cont-2
-  357  docker ps -a 
-  358  docker rm mytest-cont-2
-  359  docker ps -a 
-  360  docker start mytest-cont-2
   361  ls
   362  docker ps 
   363  docker attach mytest-cont-1
@@ -998,3 +885,116 @@
  1245  cd 03-Ansible/
  1246  ls
  1247  history > Day4_History 
+ 1248  cd ..
+ 1249  ls
+ 1250  git add . ; git commit -m "Scale-Out"; git push 
+ 1251  ls
+ 1252  cd 03-Ansible/
+ 1253  ls
+ 1254  04-ScaleOut/
+ 1255  ls
+ 1256  cd 04-ScaleOut/
+ 1257  ls
+ 1258  cd Production/
+ 1259  ls
+ 1260  cat group_vars/dc 
+ 1261  history 
+ 1262  useraddls
+ 1263  ls
+ 1264  vim ansible.cfg 
+ 1265  ls
+ 1266  cd ..
+ 1267  ls
+ 1268  cd ..
+ 1269  ls
+ 1270  mkdir 05-Playbook
+ 1271  ls
+ 1272  cd 05-Playbook/
+ 1273  ls
+ 1274  cp -rf ../04-ScaleOut/Production/ansible.cfg . 
+ 1275  cp -rf ../04-ScaleOut/Production/hosts . 
+ 1276  ls
+ 1277  vim hosts 
+ 1278  ls
+ 1279  vim playbook.yaml
+ 1280  ls
+ 1281  ansible-playbook playbook.yaml 
+ 1282  ping 172.42.42.101
+ 1283  ping 172.42.42.101ls
+ 1284  ls
+ 1285  ping 172.42.42.101
+ 1286  ls
+ 1287  vim playbook.yaml 
+ 1288  ls
+ 1289  cat hosts 
+ 1290  ls
+ 1291  ansible-playbook playbook.yaml 
+ 1292  cat hosts 
+ 1293  ls
+ 1294  cp -rf ../04-ScaleOut/Production/group_vars . 
+ 1295  ls
+ 1296  cat group_vars/dc 
+ 1297  ansible-playbook playbook.yaml 
+ 1298  vim playbook.yaml 
+ 1299  ansible-playbook playbook.yaml 
+ 1300  ansible-doc  apt
+ 1301  ls
+ 1302  vim playbook.yaml 
+ 1303  ansible-playbook playbook.yaml 
+ 1304  ls
+ 1305  cd ..
+ 1306  ls
+ 1307  cd ..
+ 1308  ls
+ 1309  git add . ; git commit -m "05-Playbook"; git push 
+ 1310  ls
+ 1311  cd 03-Ansible/
+ 1312  ls
+ 1313  cp -rf 05-Playbook 06-Deployment
+ 1314  ls
+ 1315  cd 06-Deployment/
+ 1316  ls
+ 1317  vim playbook.yaml 
+ 1318  ls
+ 1319  mkdir files
+ 1320  vim files/index.html
+ 1321  ls
+ 1322  ansible-playbook playbook.yaml 
+ 1323  ls
+ 1324  cat playbook.yaml 
+ 1325  vim playbook.yaml 
+ 1326  ls
+ 1327  vim playbook.yaml 
+ 1328  ls
+ 1329  mkdir templates
+ 1330  ls
+ 1331  vim templates/info.j2
+ 1332  ansible-playbook playbook.yaml 
+ 1333  ls
+ 1334  rm 1
+ 1335  ls
+ 1336  vim templates/info.j2 
+ 1337  ls
+ 1338  ansible-playbook playbook.yaml 
+ 1339  vim playbook.yaml 
+ 1340  ansible-playbook playbook.yaml 
+ 1341  vim playbook.yaml 
+ 1342  ansible-playbook playbook.yaml 
+ 1343  ls
+ 1344  vim playbook.yaml 
+ 1345  ls
+ 1346  vim templates/info.j2 
+ 1347  ansible-playbook playbook.yaml 
+ 1348  ls
+ 1349  vim playbook.yaml 
+ 1350  ansible-playbook playbook.yaml 
+ 1351  vim templates/info.j2 
+ 1352  vim playbook.yaml 
+ 1353  ansible-playbook playbook.yaml 
+ 1354  ls
+ 1355  vim playbook.yaml 
+ 1356  ansible-playbook playbook.yaml 
+ 1357  ls
+ 1358  cd ..
+ 1359  ls
+ 1360  history > Day4_History 
