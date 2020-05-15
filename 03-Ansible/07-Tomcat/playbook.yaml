@@ -10,12 +10,27 @@
   vars:
     doc_tomcat: "/opt/SP/apps/tomcat"
     doc_myapp: "/opt/SP/apps/tomcat/webapps/myapp"
+    doc_test: "/opt/SP/apps/amitvashist"
     admin: "Test-Admin-3"
 
 
   tasks: 
   - name: Create Tomcat Home Dir.
     file: path={{doc_tomcat}} state=directory 
+
+
+  - name: Create Test Dir.
+    command: ls {{doc_test}}
+    register: result1
+    ignore_errors: yes 
+
+  - debug: msg="Unable to file Test Dir"
+    when: result1|failed
+    ignore_errors: yes
+
+  - name: Create MyTest Dir.
+    file: path={{doc_test}} state=directory 
+    when: result1|failed
 
   - name: Download Tomcat TarBall
     get_url: url=https://downloads.apache.org/tomcat/tomcat-8/v8.5.55/bin/apache-tomcat-8.5.55.tar.gz  dest={{doc_tomcat}}/tomcat.tar.gz mode=0755
