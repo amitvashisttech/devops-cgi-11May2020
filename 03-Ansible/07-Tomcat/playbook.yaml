@@ -1,0 +1,40 @@
+---
+# Update1: Getting Prepared for Tomcat.
+# Update2: Deploying Template Page over Tomcat.
+# Update3: Bring up the Tomcat
+
+- hosts: web:db
+  name: Tomcat Deployment
+  vars:
+    doc_tomcat: "/opt/SP/apps/tomcat"
+    doc_myapp: "/opt/SP/apps/tomcat/webapps/myapp"
+    admin: "Test-Admin-2"
+
+
+  tasks: 
+  - name: Create Tomcat Home Dir.
+    file: path={{doc_tomcat}} state=directory 
+
+  - name: Download Tomcat TarBall
+    get_url: url=https://downloads.apache.org/tomcat/tomcat-8/v8.5.55/bin/apache-tomcat-8.5.55.tar.gz  dest={{doc_tomcat}}/tomcat.tar.gz mode=0755
+
+  - name: Extract Tomcat TarBall
+    command: "tar zxf {{doc_tomcat}}/tomcat.tar.gz -C {{doc_tomcat}} --strip-components 1" 
+
+  - name: Install Java 1.8 JDK
+    apt: name=default-jdk state=present
+
+  - name: Create Tomcat MyApp Home Dir.
+    file: path={{doc_myapp}} state=directory
+
+  - name: Download Background Image.
+    get_url: url="https://image.shutterstock.com/image-vector/old-video-game-retro-style-600w-1025044384.jpg" dest={{doc_myapp}}/background.jpg mode=0755
+  
+  - name: Deploy Custom Info Web Page 
+    template: src=templates/info.j2 dest={{doc_myapp}}/index.html
+    notify:
+    - Restart Tomcat
+
+  handlers:
+  - name: Restart Tomcat
+    shell: "nohup sh  {{doc_tomcat}}/bin/catalina.sh  start"
