@@ -34,7 +34,10 @@
   get_url: url="https://image.shutterstock.com/image-vector/old-video-game-retro-style-600w-1025044384.jpg" dest={{doc_myapp}}/background.jpg mode=0755
   
 - name: Deploy Custom Info Web Page 
-  template: src=templates/info.j2 dest={{doc_myapp}}/index.html
+  template: src=templates/info.j2 dest={{doc_myapp}}/info.html
+
+- name: Deploy Custom Info Web Page 
+  copy: src=files/jenkins.html dest={{doc_myapp}}/index.html
   notify:
   - Restart Tomcat
 
