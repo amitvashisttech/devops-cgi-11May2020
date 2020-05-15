@@ -1,5 +1,5 @@
 ---
-- hosts: "172.42.42.101"
+- hosts: "web:db"
   name: My Petclinic Installation
   roles:
    - role: "../roles/server-common"

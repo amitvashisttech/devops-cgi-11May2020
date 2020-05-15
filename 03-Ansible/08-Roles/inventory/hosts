@@ -1,12 +1,12 @@
 
 [web]
-172.42.42.101   
-172.42.42.1[05:07]
+worker1.example.com
 
 
 
 [db]
-172.42.42.102
+worker2.example.com
+172.31.0.102
 
 
 [ansible]
