@@ -44,7 +44,7 @@ node('master') {
     
     stage('Getting Ready For Ansible') {
     sh label: '', script: 'cp -rf target/petclinic.war ../../03-Ansible/08-Roles/roles/tomcat/files/petclinic.war'
-    sh label: '', script: "echo '<h1>JENKINS_TASK_ID: '${env.JOB_NAME}[${env.BUILD_NUMBER}]'</h1>' > ../../03-Ansible/08-Roles/roles/tomcat/files/jenkins.html'
+    sh label: '', script: "echo '<h1>JENKINS_TASK_ID: '${env.JOB_NAME}[${env.BUILD_NUMBER}]'</h1>' > ../../03-Ansible/08-Roles/roles/tomcat/files/jenkins.html"
     }
 
     stage('Deployment-Prod-Ansible') {
