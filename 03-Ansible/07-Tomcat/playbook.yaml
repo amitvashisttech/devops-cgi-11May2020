@@ -2,13 +2,15 @@
 # Update1: Getting Prepared for Tomcat.
 # Update2: Deploying Template Page over Tomcat.
 # Update3: Bring up the Tomcat
+# Update4: Notify & Handlers
+# Update5: Deployment of Petclinic War. 
 
 - hosts: web:db
   name: Tomcat Deployment
   vars:
     doc_tomcat: "/opt/SP/apps/tomcat"
     doc_myapp: "/opt/SP/apps/tomcat/webapps/myapp"
-    admin: "Test-Admin-2"
+    admin: "Test-Admin-3"
 
 
   tasks: 
@@ -34,6 +36,9 @@
     template: src=templates/info.j2 dest={{doc_myapp}}/index.html
     notify:
     - Restart Tomcat
+
+  - name: Deploy Petclinic War
+    copy: src=files/petclinic.war dest={{doc_tomcat}}/webapps/ mode=0644
 
   handlers:
   - name: Restart Tomcat
